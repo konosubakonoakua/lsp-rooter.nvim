@@ -50,6 +50,10 @@ local set_project_dir = function(client)
   end
 
   local project_root = client.config.root_dir
+  if project_root == nil then
+    return
+  end
+  
   if M.project_dir ~= project_root then
     M.project_dir = project_root
     vim.api.nvim_set_current_dir(project_root)
